@@ -54,7 +54,7 @@ function renderProductList(data){
 
 function openUpdateModal(id){
     document.querySelector(".modal-title").innerHTML = "Sửa sản phẩm";
-    document.querySelector(".modal-footer").innerHTML = `<button onclick='updateProduct(${id})' class='btn btn-success'>Sửa</button>`;
+    document.querySelector(".modal-footer").innerHTML = `<button type='button' onclick='updateProduct(${id})' class='btn btn-success'>Sửa</button>`;
 
     productService.getById(id).then(function(response){
         domId("TenSP").value = response.data.name;
@@ -69,6 +69,10 @@ function openUpdateModal(id){
 }
 
 function updateProduct(id){
+
+    var isValid = validateForm();
+    if (!isValid) return;
+
     var name = domId("TenSP").value;
     var price = domId("GiaSP").value;
     var screen = domId("manHinhSP").value;
@@ -90,10 +94,38 @@ domId("btnThemSP").onclick = function(){
 
     // querySelector lấy sản phẩm đầu tiên nó kiếm dc
     document.querySelector(".modal-title").innerHTML = "Thêm sản phẩm";
-    document.querySelector(".modal-footer").innerHTML = "<button onclick='addProduct()' class='btn btn-success'>Thêm</button>";
+    document.querySelector(".modal-footer").innerHTML = "<button type='button' onclick='addProduct()' class='btn btn-success'>Thêm</button>";
 };
 
+function validateForm(){
+    var name = domId("TenSP").value;
+    var price = domId("GiaSP").value;
+    var screen = domId("manHinhSP").value;
+    var backCamera = domId("cameraSauSP").value;
+    var frontCamera = domId("cameraTruocSP").value;
+    var image = domId("HinhSP").value;
+    var desc = domId("moTaSP").value;
+    var type = domId("loaiSP").value;
+    var isValid = true;
+
+    isValid &= required(name, "tbTenSP");
+    isValid &= required(price, "tbGiaSP") && checkNumber(price, "tbGiaSP");
+    isValid &= required(screen, "tbmanHinhSP");
+    isValid &= required(backCamera, "tbcameraSauSP");
+    isValid &= required(frontCamera, "tbcameraTruocSP");
+    isValid &= required(image, "tbHinhSP") && checkUrl(image, "tbHinhSP");
+    isValid &= required(desc, "tbmoTaSP");
+    isValid &= required(type, "tbloaiSP");
+
+    return isValid;
+   
+}
+
 function addProduct(){
+
+    var isValid = validateForm();
+    if (!isValid) return;
+
     var name = domId("TenSP").value;
     var price = domId("GiaSP").value;
     var screen = domId("manHinhSP").value;
@@ -110,7 +142,26 @@ function addProduct(){
         getProductList();
     });
 
-    console.log(product);
+}
+
+var typeName = "";
+
+domId("typeInput").onchange = function (event){
+    typeName = event.target.value;
+}
+
+domId("basic-addon2").onclick = function filterProduct(){
+  productService.getList().then(function(response){
+  var data = response.data;
+  var result = [];
+  for (var i = 0; i < data.length; i++){
+    if(typeName === data[i].type){
+      result.push(data[i]);
+    }
+  }
+  
+  renderProductList(result);
+  });
 }
 
 function deleteProduct(id){
@@ -120,7 +171,45 @@ function deleteProduct(id){
     });
 }
 
+function required(value, spanId) {
+    if (value.length === 0) {
+      domId(spanId).innerHTML = "*Vui lòng không bỏ trống*";
+      domId(spanId).style.display = "block";
+      domId(spanId).style.color = "red";
+      return false;
+    }
+  
+    domId(spanId).style.display = "none";
+    return true;
+  }
+
+  function checkUrl(value, spanId){
+    var pattern = /(((https?:\/\/)|(www\.))[^\s]+)/g;
+    if (pattern.test(value)) {
+      domId(spanId).style.display = "none";
+      return true;
+    }
+  
+    domId(spanId).innerHTML = "*Vui lòng nhập định dạng đường link*";
+    domId(spanId).style.display = "block";
+    domId(spanId).style.color = "red";
+    return false;
+  }
+
+  function checkNumber(value, spanId){
+    var pattern = /^\d*$/;
+    if(pattern.test(value)){
+    domId(spanId).style.display = "none";
+      return true;
+    }
+
+    domId(spanId).innerHTML = "*Vui lòng nhập số dương*";
+    domId(spanId).style.display = "block";
+    domId(spanId).style.color = "red";
+    return false;
+
+  }
+
 window.onload = function (){
     getProductList();
 }
-

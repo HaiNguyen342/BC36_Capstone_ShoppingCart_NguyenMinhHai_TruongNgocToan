@@ -101,18 +101,14 @@
             <div class="col-md-4">
               <!-- BEGIN TÌM KIẾM -->
               <div class="input-group mb-3">
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="Nhập từ khóa"
-                  aria-label="Recipient's username"
-                  aria-describedby="basic-addon2"
-                />
-                <div class="input-group-append">
-                  <span class="input-group-text" id="basic-addon2"
-                    ><i class="fa fa-search"></i
-                  ></span>
-                </div>
+                <select class="form-control" id="typeInput">
+                  <option id="choose" value="">Chọn loại sản phẩm</option>
+                  <option value="Samsung">Samsung</option>
+                  <option value="Iphone">Iphone</option>
+                </select>
+                <button class="input-group-text" id="basic-addon2"
+                  ><i class="fa fa-search"></i
+                ></button>
               </div>
               <!-- END TÌM KIẾM -->
             </div>
@@ -158,7 +154,7 @@
               </div>
               <!-- Modal body -->
               <div class="modal-body">
-                <div class="form-group">
+                <div class="form-group mb-0">
                   <label>Tên Sản Phẩm</label>
                   <input
                     id="TenSP"
@@ -167,9 +163,9 @@
                   />
                 </div>
   
-                <span class="sp-thongbao" id="tbTenSP"></span>
+                <span class="sp-thongbao mb-2" id="tbTenSP"></span>
   
-                <div class="form-group">
+                <div class="form-group mb-0">
                   <label>Giá</label>
                   <input
                     id="GiaSP"
@@ -178,9 +174,9 @@
                   />
                 </div>
   
-                <span class="sp-thongbao" id="tbGiaSP"></span>
+                <span class="sp-thongbao mb-2" id="tbGiaSP"></span>
   
-                <div class="form-group">
+                <div class="form-group mb-0">
                   <label>Màn hình</label>
                   <input
                     id="manHinhSP"
@@ -189,9 +185,9 @@
                   />
                 </div>
   
-                <span class="sp-thongbao" id="tbmanHinhSP"></span>
+                <span class="sp-thongbao mb-2" id="tbmanHinhSP"></span>
                 
-                <div class="form-group">
+                <div class="form-group mb-0">
                   <label>Camera sau</label>
                   <input
                     id="cameraSauSP"
@@ -200,9 +196,9 @@
                   />
                 </div>
   
-                <span class="sp-thongbao" id="tbcameraSauSP"></span>
+                <span class="sp-thongbao mb-2" id="tbcameraSauSP"></span>
   
-                <div class="form-group">
+                <div class="form-group mb-0">
                   <label>Camera trước</label>
                   <input
                     id="cameraTruocSP"
@@ -211,9 +207,9 @@
                   />
                 </div>
   
-                <span class="sp-thongbao" id="tbcameraTruocSP"></span>
+                <span class="sp-thongbao mb-2" id="tbcameraTruocSP"></span>
   
-                <div class="form-group">
+                <div class="form-group mb-0">
                   <label>Hình Ảnh</label>
                   <input
                     id="HinhSP"
@@ -222,9 +218,9 @@
                   />
                 </div>
   
-                <span class="sp-thongbao" id="tbHinhSP"></span>
+                <span class="sp-thongbao mb-2" id="tbHinhSP"></span>
   
-                <div class="form-group">
+                <div class="form-group mb-0">
                   <label>Mô tả</label>
                   <input
                     id="moTaSP"
@@ -233,15 +229,18 @@
                   />
                 </div>
   
-                <span class="sp-thongbao" id="tbmoTaSP"></span>
+                <span class="sp-thongbao mb-2" id="tbmoTaSP"></span>
   
                 <div class="form-group">
                   <label for="">Loại sản phẩm: </label>
                   <select class="form-control" id="loaiSP">
+                    <option value="">Loại</option>
                     <option value="Iphone">Iphone</option>
                     <option value="Samsung">Samsung</option>
-                    <option value="other">Other</option>
                   </select>
+
+                  <span class="sp-thongbao" id="tbloaiSP"></span>
+
                 </div>
               </div>
               <!-- Modal footer -->
