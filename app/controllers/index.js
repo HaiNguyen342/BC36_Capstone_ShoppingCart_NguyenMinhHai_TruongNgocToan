@@ -17,13 +17,12 @@ function renderProductList(data) {
     content += `
     <div class="card">
     <div class="top-bar">
-      <i class="fab fa-apple"></i>
       <em class="stocks">${data[i].type}</em>
     </div>
     <div class="img-container">
       <img
         class="product-img"
-        src=${data[i].image}"
+        src='${data[i].img}'"
       />
       <div class="out-of-stock-cover"><span>Out Of Stock</span></div>
     </div>
@@ -57,6 +56,26 @@ function renderProductList(data) {
   }
 
   domId("main-cart").innerHTML = content;
+}
+
+var typeName = "";
+
+domId("typeInput").onchange = function (event){
+    typeName = event.target.value;
+}
+
+domId("basic-addon2").onclick = function filterProduct(){
+  productService.getList().then(function(response){
+  var data = response.data;
+  var result = [];
+  for (var i = 0; i < data.length; i++){
+    if(typeName === data[i].type){
+      result.push(data[i]);
+    }
+  }
+  
+  renderProductList(result);
+  });
 }
 
 window.onload = function () {

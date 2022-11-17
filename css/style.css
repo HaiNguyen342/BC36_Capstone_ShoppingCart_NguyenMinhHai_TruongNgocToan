@@ -15,6 +15,15 @@ div {
   display: flex;
 }
 
+#app a{
+  font-size: 20px;
+  position: absolute;
+  left: 2rem;
+  color: white;
+  font-weight: bold;
+  top: 0.5rem
+}
+
 button {
   border: none;
   background: none;
@@ -153,6 +162,19 @@ button {
   color: black;
 }
 
+#input-group{
+  position: absolute;
+  left: 2rem;
+  top: 2.2rem;
+  color: black;
+  font-size: 20px;
+}
+
+#typeInput, #basic-addon2{
+  font-size: 20px;
+margin-right: 5px;
+}
+
 .fa-shopping-cart:hover {
   color: white;
 }
@@ -188,7 +210,7 @@ button {
   position: relative;
   flex-shrink: 0;
   height: 300px;
-  width: 200px;
+  width: 250px;
   background-color: #010101;
   border-radius: 20px;
   overflow: hidden;
