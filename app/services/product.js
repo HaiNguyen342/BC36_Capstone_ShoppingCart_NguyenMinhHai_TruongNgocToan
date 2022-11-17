@@ -6,10 +6,11 @@ function ProductService() {
       });
     };
   
-    this.getById = function (id) {
+    this.addProduct = function (data) {
       return axios({
-        url: `https://63661fa479b0914b75c9b920.mockapi.io/ShoppingCartProducts/${id}`,
-        method: "GET",
+        url: `https://63661fa479b0914b75c9b920.mockapi.io/ShoppingCartProducts/`,
+        method: "POST",
+        data: data,
       });
     };
 

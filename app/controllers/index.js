@@ -1,5 +1,7 @@
 var productService = new ProductService();
 
+var cartProduct = [];
+
 function domId(id) {
   return document.getElementById(id);
 }   

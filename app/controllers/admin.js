@@ -10,6 +10,19 @@ function getProductList(){
     });
 }
 
+function resetForm(){
+
+        domId("myform").reset();
+        domId("tbTenSP").style.display = "none";
+        domId("tbGiaSP").style.display = "none"
+        domId("tbmanHinhSP").style.display = "none";
+        domId("tbHinhSP").style.display = "none"
+        domId("tbcameraSauSP").style.display = "none";
+        domId("tbcameraTruocSP").style.display = "none";
+        domId("tbmoTaSP").style.display = "none";
+        domId("tbloaiSP").style.display = "none";
+}
+
 function renderProductList(data){
     var content = "";
 
@@ -86,16 +99,18 @@ function addProduct(){
     var screen = domId("manHinhSP").value;
     var backCamera = domId("cameraSauSP").value;
     var frontCamera = domId("cameraTruocSP").value;
-    var img = domId("HinhSP").value;
+    var image = domId("HinhSP").value;
     var desc = domId("moTaSP").value;
     var type = domId("loaiSP").value;
 
-    var product = new Product(name, price, screen, backCamera, frontCamera, img, desc, type);
+    var product = new Product(name, price, screen, backCamera, frontCamera, image, desc, type);
 
     productService.addProduct(product).then(function(){
         alert("Thêm sản phẩm thành công.");
         getProductList();
     });
+
+    console.log(product);
 }
 
 function deleteProduct(id){

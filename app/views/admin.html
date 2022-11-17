@@ -16,7 +16,7 @@
       crossorigin="anonymous"
     />
 
-    <link rel="stylesheet" href="/assets/css/style.css">
+    <!-- <link rel="stylesheet" href="/assets/css/style.css"> -->
 
   </head>
 
@@ -91,6 +91,7 @@
                 class="btn btn-success"
                 data-toggle="modal"
                 data-target="#myModal"
+                onclick = "resetForm()"
               >
                 <i class="fa fa-plus mr-1"></i>
                 Thêm Mới
@@ -143,66 +144,116 @@
       <!--KetThuc Tabmenu-->
 
       <!-- The Modal -->
-      <div class="modal fade" id="myModal">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <!-- Modal Header -->
-            <div class="modal-header">
-              <h4 class="modal-title">Modal Heading</h4>
-              <button type="button" class="close" data-dismiss="modal">
-                &times;
-              </button>
+      <form action="" id="myform" role="form">
+
+        <div class="modal fade" id="myModal">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <!-- Modal Header -->
+              <div class="modal-header">
+                <h4 class="modal-title">Modal Heading</h4>
+                <button type="button" class="close" data-dismiss="modal" onclick="resetForm()">
+                  &times;
+                </button>
+              </div>
+              <!-- Modal body -->
+              <div class="modal-body">
+                <div class="form-group">
+                  <label>Tên Sản Phẩm</label>
+                  <input
+                    id="TenSP"
+                    class="form-control"
+                    placeholder="Nhập vào tên sản phẩm"
+                  />
+                </div>
+  
+                <span class="sp-thongbao" id="tbTenSP"></span>
+  
+                <div class="form-group">
+                  <label>Giá</label>
+                  <input
+                    id="GiaSP"
+                    class="form-control"
+                    placeholder="Nhập vào giá"
+                  />
+                </div>
+  
+                <span class="sp-thongbao" id="tbGiaSP"></span>
+  
+                <div class="form-group">
+                  <label>Màn hình</label>
+                  <input
+                    id="manHinhSP"
+                    class="form-control"
+                    placeholder="Màn hình"
+                  />
+                </div>
+  
+                <span class="sp-thongbao" id="tbmanHinhSP"></span>
+                
+                <div class="form-group">
+                  <label>Camera sau</label>
+                  <input
+                    id="cameraSauSP"
+                    class="form-control"
+                    placeholder="Camera sau"
+                  />
+                </div>
+  
+                <span class="sp-thongbao" id="tbcameraSauSP"></span>
+  
+                <div class="form-group">
+                  <label>Camera trước</label>
+                  <input
+                    id="cameraTruocSP"
+                    class="form-control"
+                    placeholder="Camera trước"
+                  />
+                </div>
+  
+                <span class="sp-thongbao" id="tbcameraTruocSP"></span>
+  
+                <div class="form-group">
+                  <label>Hình Ảnh</label>
+                  <input
+                    id="HinhSP"
+                    class="form-control"
+                    placeholder="Nhập vào link hình sản phẩm"
+                  />
+                </div>
+  
+                <span class="sp-thongbao" id="tbHinhSP"></span>
+  
+                <div class="form-group">
+                  <label>Mô tả</label>
+                  <input
+                    id="moTaSP"
+                    class="form-control"
+                    placeholder="Mô tả"
+                  />
+                </div>
+  
+                <span class="sp-thongbao" id="tbmoTaSP"></span>
+  
+                <div class="form-group">
+                  <label for="">Loại sản phẩm: </label>
+                  <select class="form-control" id="loaiSP">
+                    <option value="Iphone">Iphone</option>
+                    <option value="Samsung">Samsung</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+              </div>
+              <!-- Modal footer -->
+              <div class="modal-footer"></div>
             </div>
-            <!-- Modal body -->
-            <div class="modal-body">
-              <div class="form-group">
-                <label>Tên Sản Phẩm</label>
-                <input
-                  id="TenSP"
-                  class="form-control"
-                  placeholder="Nhập vào tên sản phẩm"
-                />
-              </div>
-
-              <span class="sp-thongbao" id="tbTenSP"></span>
-
-              <div class="form-group">
-                <label>Giá</label>
-                <input
-                  id="GiaSP"
-                  class="form-control"
-                  placeholder="Nhập vào giá"
-                />
-              </div>
-              
-              <span class="sp-thongbao" id="tbGiaSP"></span>
-
-              <div class="form-group">
-                <label>Hình Ảnh</label>
-                <input
-                  id="HinhSP"
-                  class="form-control"
-                  placeholder="Nhập vào hình sản phẩm"
-                />
-              </div>
-
-              <span class="sp-thongbao" id="tbHinhSP"></span>
-
-              <div class="form-group">
-                <label for="">Loại sản phẩm: </label>
-                <select class="form-control" id="loaiSP">
-                  <option value="phone">Phone</option>
-                  <option value="laptop">Laptop</option>
-                  <option value="other">Other</option>
-                </select>
-              </div>
-            </div>
-            <!-- Modal footer -->
-            <div class="modal-footer"></div>
           </div>
         </div>
       </div>
-    </div>
+
+      </form>
+        
+      
     <div id="container"></div>
     <style>
       #container {
