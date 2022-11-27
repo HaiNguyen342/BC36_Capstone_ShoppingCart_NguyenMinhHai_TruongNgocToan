@@ -188,7 +188,7 @@ function buy(e) {
 function order() {
   let e = document.getElementsByClassName("invoice")[0];
   (e.style.height = "500px"),
-    (e.style.width = "400px"),
+    (e.style.width = "500px"),
     (e.innerHTML = OrderConfirm()),
     ToggleBackBtns(),
     Stocks(),
