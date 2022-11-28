@@ -6,6 +6,7 @@ function domId(id){
 
 function getProductList(){
    productService.getList().then(function(response){
+  
         renderProductList(response.data);
     });
 }
@@ -136,7 +137,7 @@ function addProduct(){
     var type = domId("loaiSP").value;
 
     var product = new Product(name, price, screen, backCamera, frontCamera, image, desc, type);
-
+    
     productService.addProduct(product).then(function(){
         alert("Thêm sản phẩm thành công.");
         getProductList();

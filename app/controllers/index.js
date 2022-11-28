@@ -85,6 +85,7 @@ domId("basic-addon2").onclick = function filterProduct() {
 
 // cart
 function addItem(e) {
+  console.log("31231")
   let t =
     e.parentElement.parentElement.parentElement.parentElement.parentElement;
   if ("flex" == t.getElementsByClassName("out-of-stock-cover")[0].style.display)
@@ -95,6 +96,7 @@ function addItem(e) {
     ),
     s = t.getElementsByClassName("product-img")[0].src;
   SwitchBtns(t);
+  console.log(s)
   let i = { name: n, price: a, imgSrc: s, qty: 1 };
   CartItems(i), cartProduct.push(i), RenderCart(), CartItemsTotal();
 }
